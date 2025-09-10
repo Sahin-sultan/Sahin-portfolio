@@ -43,7 +43,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section id="work" className="py-24 px-6 bg-accent" ref={ref}>
+    <section id="work" className="py-24 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
