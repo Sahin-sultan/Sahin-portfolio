@@ -7,7 +7,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "work", "contact"];
+      const sections = ["home", "about", "skills", "work", "certificates", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -50,8 +50,10 @@ export default function Navigation() {
           
           <div className="hidden md:flex space-x-8">
             {[
-              { id: "work", label: "Work" },
               { id: "about", label: "About" },
+              { id: "skills", label: "Skills" },
+              { id: "work", label: "Work" },
+              { id: "certificates", label: "Certificates" },
               { id: "contact", label: "Contact" }
             ].map((item) => (
               <button
@@ -87,8 +89,10 @@ export default function Navigation() {
           <div className="md:hidden mt-4 py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
               {[
-                { id: "work", label: "Work" },
                 { id: "about", label: "About" },
+                { id: "skills", label: "Skills" },
+                { id: "work", label: "Work" },
+                { id: "certificates", label: "Certificates" },
                 { id: "contact", label: "Contact" }
               ].map((item) => (
                 <button
