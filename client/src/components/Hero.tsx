@@ -37,10 +37,12 @@ export default function Hero() {
             <div className="text-sm text-muted-foreground">happy clients</div>
           </div>
           <div className="glass-card rounded-lg p-8 text-center hover:glass-card-light transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-light text-foreground mb-2">0</div>
+            <div className="text-4xl md:text-5xl font-light text-foreground mb-2">6</div>
             <div className="text-sm text-muted-foreground">years experience</div>
           </div>
           <div className="glass-card rounded-lg p-8 text-center hover:glass-card-light transition-all duration-300">
+            <div className="text-4xl md:text-5xl font-light text-foreground mb-2">100%</div>
+            <div className="text-sm text-muted-foreground">client satisfaction</div>
           </div>
         </AnimatedSection>
       </div>
