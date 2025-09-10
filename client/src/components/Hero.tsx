@@ -1,7 +1,35 @@
-import { motion } from "framer-motion";
+import { memo, useMemo } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 
+interface Stat {
+  value: string;
+  label: string;
+}
+
+const StatCard = memo(({ value, label }: Stat) => (
+  <div 
+    className="glass-card rounded-lg p-8 text-center hover:glass-card-light transition-all duration-300"
+    role="group"
+    aria-label={`${value} ${label}`}
+  >
+    <div className="text-4xl md:text-5xl font-light text-foreground mb-2" aria-label="Statistic value">
+      {value}
+    </div>
+    <div className="text-sm text-muted-foreground" aria-label="Statistic description">
+      {label}
+    </div>
+  </div>
+));
+
+StatCard.displayName = "StatCard";
+
 export default function Hero() {
+  const stats: Stat[] = useMemo(() => [
+    { value: "50+", label: "happy clients" },
+    { value: "6", label: "years experience" },
+    { value: "100%", label: "client satisfaction" }
+  ], []);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20 pb-20">
       <div className="max-w-4xl mx-auto text-center">
@@ -11,7 +39,7 @@ export default function Hero() {
           delay={0}
           y={60}
         >
-          <h1>Sahin<br /></h1>
+          <h1>Sahin</h1>
         </AnimatedSection>
         
         <AnimatedSection
@@ -32,18 +60,9 @@ export default function Hero() {
           delay={0.4}
           y={30}
         >
-          <div className="glass-card rounded-lg p-8 text-center hover:glass-card-light transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-light text-foreground mb-2">0</div>
-            <div className="text-sm text-muted-foreground">happy clients</div>
-          </div>
-          <div className="glass-card rounded-lg p-8 text-center hover:glass-card-light transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-light text-foreground mb-2">6</div>
-            <div className="text-sm text-muted-foreground">years experience</div>
-          </div>
-          <div className="glass-card rounded-lg p-8 text-center hover:glass-card-light transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-light text-foreground mb-2">100%</div>
-            <div className="text-sm text-muted-foreground">client satisfaction</div>
-          </div>
+          {stats.map((stat) => (
+            <StatCard key={stat.label} value={stat.value} label={stat.label} />
+          ))}
         </AnimatedSection>
       </div>
     </section>
