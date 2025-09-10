@@ -90,7 +90,7 @@ export default function Certificates() {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              className="bg-card border border-border rounded-lg overflow-hidden hover:border-foreground/20 hover:shadow-2xl hover:shadow-foreground/5 transition-all duration-500 group cursor-pointer"
+              className="glass-card rounded-lg overflow-hidden hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 group cursor-pointer hover:glass-card-light"
               data-testid={`certificate-${certificate.id}`}
             >
               {/* Certificate Image */}

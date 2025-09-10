@@ -96,7 +96,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: categoryIndex * 0.1 }}
-              className="bg-card border border-border rounded-lg p-6 hover:border-foreground/20 transition-all duration-300 group"
+              className="glass-card rounded-lg p-6 hover:border-white/30 transition-all duration-300 group hover:glass-card-light"
               data-testid={`skill-category-${categoryIndex}`}
             >
               <div className="flex items-center space-x-3 mb-6">
