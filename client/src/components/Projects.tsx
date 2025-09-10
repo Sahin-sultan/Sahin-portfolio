@@ -65,7 +65,7 @@ export default function Projects() {
               className="group"
               data-testid={`project-${project.id}`}
             >
-              <div className="aspect-video bg-muted rounded-lg mb-6 overflow-hidden">
+              <div className="aspect-video glass-card-subtle rounded-lg mb-6 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
