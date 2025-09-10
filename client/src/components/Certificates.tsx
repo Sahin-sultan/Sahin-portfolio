@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Award, Calendar, ExternalLink, CheckCircle } from "lucide-react";
 
 const certificates = [
@@ -67,31 +66,26 @@ const certificates = [
 ];
 
 export default function Certificates() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-
   return (
-    <section id="certificates" className="py-24 px-6" ref={ref}>
+    <section id="certificates" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <AnimatedSection
           className="text-4xl md:text-5xl font-light text-foreground mb-16 text-center"
           data-testid="certificates-title"
+          delay={0}
+          y={50}
         >
-          Certifications & Awards
-        </motion.h2>
+          <h2>Certifications & Awards</h2>
+        </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((certificate, index) => (
-            <motion.div
+            <AnimatedSection
               key={certificate.id}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               className="glass-card rounded-lg overflow-hidden hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 group cursor-pointer hover:glass-card-light"
               data-testid={`certificate-${certificate.id}`}
+              delay={index * 0.1}
+              y={40}
             >
               {/* Certificate Image */}
               <div className="aspect-video bg-muted overflow-hidden relative">
@@ -164,7 +158,7 @@ export default function Certificates() {
                   <ExternalLink className="w-4 h-4" />
                 </motion.button>
               </div>
-            </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

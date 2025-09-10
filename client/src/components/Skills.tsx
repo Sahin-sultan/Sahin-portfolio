@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Code, Palette, Database, Globe, Smartphone, Figma } from "lucide-react";
 
 const skillCategories = [
@@ -73,31 +72,26 @@ const skillCategories = [
 ];
 
 export default function Skills() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-
   return (
-    <section id="skills" className="py-24 px-6" ref={ref}>
+    <section id="skills" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <AnimatedSection
           className="text-4xl md:text-5xl font-light text-foreground mb-16 text-center"
           data-testid="skills-title"
+          delay={0}
+          y={50}
         >
-          Skills & Expertise
-        </motion.h2>
+          <h2>Skills & Expertise</h2>
+        </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div
+            <AnimatedSection
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: categoryIndex * 0.1 }}
               className="glass-card rounded-lg p-6 hover:border-white/30 transition-all duration-300 group hover:glass-card-light"
               data-testid={`skill-category-${categoryIndex}`}
+              delay={categoryIndex * 0.1}
+              y={40}
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="text-foreground group-hover:text-primary transition-colors duration-300">
@@ -118,11 +112,12 @@ export default function Skills() {
                     <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ 
                           duration: 1.2, 
                           ease: "easeOut", 
-                          delay: (categoryIndex * 0.1) + (skillIndex * 0.1) + 0.3 
+                          delay: (categoryIndex * 0.1) + (skillIndex * 0.1) + 0.5
                         }}
                         className="h-full bg-foreground rounded-full"
                         data-testid={`skill-bar-${categoryIndex}-${skillIndex}`}
@@ -131,7 +126,7 @@ export default function Skills() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

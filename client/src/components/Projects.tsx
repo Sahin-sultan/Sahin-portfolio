@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import AnimatedSection from "@/components/AnimatedSection";
 import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
@@ -39,31 +38,26 @@ const projects = [
 ];
 
 export default function Projects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-
   return (
-    <section id="work" className="py-24 px-6" ref={ref}>
+    <section id="work" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <AnimatedSection
           className="text-4xl md:text-5xl font-light text-foreground mb-16 text-center"
           data-testid="projects-title"
+          delay={0}
+          y={50}
         >
-          Selected Work
-        </motion.h2>
+          <h2>Selected Work</h2>
+        </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           {projects.map((project, index) => (
-            <motion.div
+            <AnimatedSection
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
               className="group"
               data-testid={`project-${project.id}`}
+              delay={index * 0.1}
+              y={40}
             >
               <div className="aspect-video glass-card-subtle rounded-lg mb-6 overflow-hidden">
                 <img
@@ -106,7 +100,7 @@ export default function Projects() {
                   <span>GitHub</span>
                 </a>
               </div>
-            </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
