@@ -37,18 +37,18 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-card-subtle border-b border-white/10">
-      <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10">
+      <div className="w-full px-6 py-4">
+        <div className="flex justify-between items-center">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-xl font-medium text-foreground hover:text-muted-foreground transition-colors"
+            className="text-2xl font-bold text-white hover:text-gray-300 transform transition-all duration-300 ease-in-out hover:scale-105"
             data-testid="nav-logo"
           >
-            Alex Johnson
+            Sahin Sultan
           </button>
           
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {[
               { id: "about", label: "About" },
               { id: "skills", label: "Skills" },
@@ -59,10 +59,10 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-base font-medium transition-all duration-300 hover:scale-105 ${
                   activeSection === item.id
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-white border-b-2 border-white pb-1"
+                    : "text-gray-300 hover:text-white"
                 }`}
                 data-testid={`nav-${item.id}`}
               >
@@ -72,22 +72,22 @@ export default function Navigation() {
           </div>
 
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="mobile-menu-toggle"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden mt-6 py-6 border-t border-white/20">
+            <div className="flex flex-col space-y-6">
               {[
                 { id: "about", label: "About" },
                 { id: "skills", label: "Skills" },
@@ -98,10 +98,10 @@ export default function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-medium transition-colors ${
+                  className={`text-left text-lg font-medium transition-colors duration-300 ${
                     activeSection === item.id
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-white"
+                      : "text-gray-300 hover:text-white"
                   }`}
                   data-testid={`mobile-nav-${item.id}`}
                 >

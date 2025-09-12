@@ -116,4 +116,71 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
   }
+  
+  @keyframes textShine {
+    0% {
+      background-position: -200% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+  
+  .shine-text {
+    background: linear-gradient(
+      90deg,
+      #888888 0%,
+      #888888 30%,
+      #ffffff 50%,
+      #888888 70%,
+      #888888 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: textShine 3s ease-in-out infinite;
+    display: inline-block;
+  }
+}
+
+/* Swimming effect - gentle floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-12px) rotate(-0.5deg);
+  }
+}
+
+/* Shining effect - light sweep from left to right every 5 seconds */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  20% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  30% {
+    transform: translateX(100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-12deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shine {
+  animation: shine 5s ease-in-out infinite;
 }

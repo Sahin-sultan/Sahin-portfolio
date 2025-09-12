@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ExternalLink, Github } from "lucide-react";
 
@@ -47,7 +46,7 @@ export default function Projects() {
           delay={0}
           y={50}
         >
-          <h2>Selected Work</h2>
+          <h2>Projects</h2>
         </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
