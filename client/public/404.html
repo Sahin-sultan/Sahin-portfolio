@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Personal Portfolio</title>
+  <script>
+    // GitHub Pages 404 redirect for SPA
+    // This script takes the current page's URL and redirects to the main page
+    // with the path as a query parameter, which can be handled by the router
+    var pathname = window.location.pathname.split('/').slice(2).join('/');
+    if (pathname) {
+      window.location.replace(
+        window.location.protocol + '//' + window.location.host + '/Sahin-portfolio/?/' + pathname
+      );
+    } else {
+      window.location.replace(
+        window.location.protocol + '//' + window.location.host + '/Sahin-portfolio/'
+      );
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
