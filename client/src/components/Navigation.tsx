@@ -11,7 +11,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "certificates", "contact"];
+      const sections = ["home", "about", "skills", "work", "certificates", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {

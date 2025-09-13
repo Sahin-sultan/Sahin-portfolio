@@ -14,7 +14,7 @@ export default function About() {
         </AnimatedSection>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Photo */}
+          {/* Profile Photo with Flip Effect */}
           <AnimatedSection
             className="flex justify-center lg:justify-start"
             data-testid="about-photo"
@@ -22,17 +22,27 @@ export default function About() {
             y={40}
           >
             <div className="relative">
-              <div className="w-80 h-80 rounded-2xl overflow-hidden glass-card border-2 border-white/10 hover:border-white/20 transition-all duration-300 animate-float">
-                <img 
-                  src="/sahin-profile.jpg" 
-                  alt="Sahin Sultan Profile Photo"
-                  className="w-full h-full object-cover relative"
-                />
-                {/* Shining overlay effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine -skew-x-12 transform translate-x-[-100%]"></div>
+              <div className="flip-card w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 animate-boat-float">
+                <div className="flip-card-inner w-full h-full relative">
+                  {/* Front Side */}
+                  <div className="flip-card-front absolute inset-0 w-full h-full">
+                    <img 
+                      src="/sahin-profile.jpg" 
+                      alt="Sahin Sultan Profile Photo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  {/* Back Side */}
+                  <div className="flip-card-back absolute inset-0 w-full h-full">
+                    <img 
+                      src="https://res.cloudinary.com/ddzreu2to/image/upload/v1757762173/Generated_Image_September_13_2025_-_2_19PM_ugqqqq.png" 
+                      alt="Sahin Sultan Alternative Photo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
-              {/* Decorative element */}
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
             </div>
           </AnimatedSection>
 

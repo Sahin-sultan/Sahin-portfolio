@@ -26,33 +26,33 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface. Built with React and Firebase.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    videoUrl: "https://sample-videos.com/zip/10/mp4/720/SampleVideo_720x480_1mb.mp4",
-    liveUrl: "#",
+    title: "Semester Hub",
+    description: "Semester Hub A secure academic note-sharing platform built with React, Supabase, and Tailwind CSS. Features authentication-protected downloads, responsive design with glass morphism UI, comprehensive admin moderation system, and real-time search functionality for collaborative student learning",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757761548/Screenshot_2025-09-13_163251_xmdb99.png",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1757761756/Screen_Recording_2025-09-13_163816_o9blic.mp4",
+    liveUrl: "https://semesterhub.vercel.app/",
     githubUrl: "#",
     technologies: ["React", "Firebase", "TypeScript"]
   },
-  {
-    id: 3,
-    title: "Creative Portfolio",
-    description: "Personal portfolio website for a creative director featuring smooth animations, dynamic image galleries, and responsive typography. Optimized for performance and accessibility.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    liveUrl: "#",
-    githubUrl: "#",
-    technologies: ["Next.js", "Framer Motion", "GSAP"]
-  },
-  {
-    id: 4,
-    title: "Analytics Dashboard",
-    description: "Comprehensive analytics dashboard with interactive charts, real-time data visualization, and custom reporting features. Built with D3.js and React for seamless data exploration.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    videoUrl: "https://sample-videos.com/zip/10/mp4/720/SampleVideo_720x480_2mb.mp4",
-    liveUrl: "#",
-    githubUrl: "#",
-    technologies: ["React", "D3.js", "Node.js", "MongoDB"]
-  }
+  // {
+  //   id: 3,
+  //   title: "Creative Portfolio",
+  //   description: "Personal portfolio website for a creative director featuring smooth animations, dynamic image galleries, and responsive typography. Optimized for performance and accessibility.",
+  //   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   technologies: ["Next.js", "Framer Motion", "GSAP"]
+  // },
+  // {
+  //   id: 4,
+  //   title: "Analytics Dashboard",
+  //   description: "Comprehensive analytics dashboard with interactive charts, real-time data visualization, and custom reporting features. Built with D3.js and React for seamless data exploration.",
+  //   image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+  //   videoUrl: "https://sample-videos.com/zip/10/mp4/720/SampleVideo_720x480_2mb.mp4",
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   technologies: ["React", "D3.js", "Node.js", "MongoDB"]
+  // }
 ];
 
 // Project Card Component with Video Hover
