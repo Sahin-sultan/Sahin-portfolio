@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["server/**/*", "api/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "@types/express", "@types/express-session"]
+  }
+}

@@ -14,6 +14,7 @@
     "start": "cross-env NODE_ENV=production node dist/index.js",
     "preview": "npm run build && npm run start",
     "check": "npx tsc --noEmit",
+    "check:server": "npx tsc --noEmit --project tsconfig.server.json",
     "analyze": "npx vite-bundle-analyzer dist/public",
     "db:push": "npx drizzle-kit push"
   },
