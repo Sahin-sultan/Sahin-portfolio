@@ -36,13 +36,8 @@ logs/
 coverage/
 .nyc_output/
 
-# Server files (not needed for frontend deployment)
-server/
-drizzle/
-
 # Development configs
 vite.config.ts.timestamp-*
-.env.example
 
 # TypeScript build info
 *.tsbuildinfo
@@ -51,3 +46,7 @@ vite.config.ts.timestamp-*
 *.tmp
 *.temp
 .cache/
+
+# Git files (keep only what's needed)
+.git/logs/
+.git/hooks/
