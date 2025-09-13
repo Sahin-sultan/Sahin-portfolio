@@ -64,10 +64,6 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Plugin configurations for optimization
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
 # Deploy preview settings
 [context.deploy-preview]
   command = "npm run build"
