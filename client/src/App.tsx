@@ -6,8 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 
-// GitHub Pages base path
-const basePath = import.meta.env.DEV ? "" : "/Sahin-portfolio";
+// Use environment variable to determine base path
+const basePath = import.meta.env.VITE_APP_ENVIRONMENT === "production" ? "" : "";
 
 function AppRouter() {
   return (
