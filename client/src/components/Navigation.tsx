@@ -4,10 +4,14 @@ import { Menu, X } from "lucide-react";
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [currentNameIndex, setCurrentNameIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  
+  const names = ["Sahin", "শাহিন", "साहिन", "شاهين", "サヒン"];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "work", "certificates", "contact"];
+      const sections = ["home", "about", "skills", "projects", "certificates", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -28,6 +32,19 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Name cycling effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setCurrentNameIndex((prev) => (prev + 1) % names.length);
+        setIsVisible(true);
+      }, 500);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [names.length]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -45,7 +62,11 @@ export default function Navigation() {
             className="text-2xl font-bold text-white hover:text-gray-300 transform transition-all duration-300 ease-in-out hover:scale-105"
             data-testid="nav-logo"
           >
-            Sahin Sultan
+            <span 
+              className={`brand-name transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            >
+              {names[currentNameIndex]}
+            </span>
           </button>
           
           <div className="hidden md:flex items-center space-x-8">

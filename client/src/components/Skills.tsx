@@ -62,7 +62,7 @@ export default function Skills() {
       skills: [
         { name: "UI/UX Design", level: 92 },
         { name: "Figma", level: 95 },
-        { name: "Adobe XD", level: 88 },
+        { name: "Canva", level: 88 },
         { name: "Photoshop", level: 85 },
         // { name: "Illustrator", level: 80 },
       ]
@@ -73,8 +73,8 @@ export default function Skills() {
       skills: [
         { name: "Node.js", level: 85 },
         { name: "Express.js", level: 88 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "MongoDB", level: 75 },
+        { name: "SQL", level: 80 },
+        // { name: "MongoDB", level: 75 },
         { name: "REST APIs", level: 90 },
       ]
     },
@@ -84,9 +84,9 @@ export default function Skills() {
       skills: [
         { name: "HTML5", level: 98 },
         { name: "CSS3", level: 95 },
-        { name: "SASS/SCSS", level: 85 },
-        { name: "Webpack", level: 78 },
-        // { name: "Vite", level: 85 },
+        { name: "JavaScript (ES6+)", level: 85 },
+        { name: "Git & GitHub", level: 78 },
+        { name: "Vercel", level: 85 },
       ]
     }
   ], []);
@@ -100,7 +100,7 @@ export default function Skills() {
           delay={0}
           y={50}
         >
-          <h2>Skills</h2>
+          <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>Skills</h2>
         </AnimatedSection>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">

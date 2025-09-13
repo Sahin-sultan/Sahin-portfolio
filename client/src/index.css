@@ -184,3 +184,19 @@
 .animate-shine {
   animation: shine 5s ease-in-out infinite;
 }
+
+/* Custom brand name styling */
+.brand-name {
+  font-family: 'Handlee', cursive;
+  font-size: 1.8rem;
+  font-weight: 400;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.brand-name.fade-out {
+  opacity: 0;
+}
+
+.brand-name.fade-in {
+  opacity: 1;
+}

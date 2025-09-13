@@ -10,7 +10,7 @@ export default function About() {
           delay={0}
           y={50}
         >
-          <h2>About</h2>
+          <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>About</h2>
         </AnimatedSection>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -45,7 +45,7 @@ export default function About() {
               y={40}
             >
               <p>
-                Hi, I'm Sahin — a Full Stack Developer and AI Enthusiast who is passionate about building modern, user-friendly, and scalable web applications.
+               I'm <span style={{ color: '#60a5fa' }}>Sahin Sultan</span>, a final-year BCA student at Seacom Skills University with a strong focus on web development and artificial intelligence.
               </p>
             </AnimatedSection>
             
@@ -56,7 +56,7 @@ export default function About() {
               y={40}
             >
               <p>
-                I enjoy turning ideas into reality with clean code, thoughtful design, and the right mix of creativity and logic. Whether it's designing smooth front-end interfaces, developing robust back-end systems, or experimenting with AI tools, I'm always eager to learn and push my limits.
+               I've gained practical exposure through internships with <span style={{ color: '#60a5fa' }}>IBM SkillsBuild</span>, where I contributed to projects exploring emerging technologies. A key milestone was founding SemesterHub, a collaborative academic note-sharing platform that simplifies resource-sharing for students and sharpened my problem-solving skills.
               </p>
             </AnimatedSection>
             
@@ -67,7 +67,9 @@ export default function About() {
               y={40}
             >
               <p>
-                When I'm not coding, I spend my time exploring new technologies, working on personal projects, and sharpening my skills to stay ahead in this fast-changing tech world.
+               Recently, I developed <span style={{ color: '#60a5fa' }}>Pay Predict</span>, a salary prediction website designed to help students and professionals estimate salary ranges based on skills, industry trends, and market data. This project strengthened my ability to merge AI with practical, real-world applications.
+
+As I approach graduation, I'm excited to start my career as a fresher—contributing to impactful projects and creating intelligent, user-friendly applications that connect technology with meaningful solutions.
               </p>
             </AnimatedSection>
           </div>

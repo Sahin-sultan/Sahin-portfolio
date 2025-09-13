@@ -11,7 +11,7 @@ export default function Contact() {
           delay={0}
           y={50}
         >
-          <h2>Let's Work Together</h2>
+          <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>Let's Work Together</h2>
         </AnimatedSection>
         
         <AnimatedSection
@@ -20,9 +20,8 @@ export default function Contact() {
           delay={0.1}
           y={40}
         >
-          <p>
-            I'm always interested in new opportunities and exciting projects. 
-            Whether you have a question or just want to say hello, I'd love to hear from you.
+          <p style={{ fontFamily: 'Crimson Text, serif', fontSize: '1.25rem', fontStyle: 'italic', fontWeight: '400' }}>
+            "I'm open to new opportunities and creative projects. Feel free to reach out—whether it's a question, collaboration, or just to say hi, I'd be happy to connect."
           </p>
         </AnimatedSection>
         
