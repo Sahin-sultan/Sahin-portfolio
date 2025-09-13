@@ -6,8 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 
-// Use environment variable to determine base path
-const basePath = import.meta.env.VITE_APP_ENVIRONMENT === "production" ? "" : "";
+// Netlify deployment - always use root path
+const basePath = "";
 
 function AppRouter() {
   return (
