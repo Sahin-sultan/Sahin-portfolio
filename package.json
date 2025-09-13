@@ -5,9 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "npm run check && npm run build:client && npm run build:server",
+    "build": "npm run check && npm run build:client",
     "build:client": "vite build",
-    "build:server": "esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --minify --target=node18",
+    "build:server": "echo 'Server build not needed for Vercel'",
     "start": "cross-env NODE_ENV=production node dist/index.js",
     "preview": "npm run build && npm run start",
     "check": "tsc --noEmit",
@@ -94,6 +94,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@types/ws": "^8.5.13",
+    "@vercel/node": "^5.3.22",
     "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
     "cross-env": "^10.0.0",
@@ -101,6 +102,7 @@
     "esbuild": "^0.25.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.17",
+    "terser": "^5.44.0",
     "tsx": "^4.19.1",
     "typescript": "5.6.3",
     "vite": "^5.4.19"
