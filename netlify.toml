@@ -6,7 +6,7 @@
   publish = "dist"
   
   # Environment variables for build
-  environment = { NODE_VERSION = "20", NPM_VERSION = "10.0.0" }
+  environment = { NODE_VERSION = "20", NPM_VERSION = "10.0.0", NODE_ENV = "production", VITE_APP_ENVIRONMENT = "production" }
 
 # Redirect rules for Single Page Application (SPA)
 [[redirects]]
@@ -67,11 +67,6 @@
 # Plugin configurations for optimization
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
-
-# Build settings
-[build.environment]
-  NODE_ENV = "production"
-  VITE_APP_ENVIRONMENT = "production"
 
 # Deploy preview settings
 [context.deploy-preview]
