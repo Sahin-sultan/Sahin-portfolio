@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/Sahin-portfolio/", // GitHub Pages subdirectory
+  base: "/", // Root path for Netlify
   plugins: [react()],
   resolve: {
     alias: {
@@ -17,6 +17,7 @@ export default defineConfig({
     sourcemap: false,
     minify: 'terser',
     cssMinify: true,
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -24,16 +25,36 @@ export default defineConfig({
           ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-popover', '@radix-ui/react-tooltip'],
           motion: ['framer-motion'],
           utils: ['lucide-react', 'clsx', 'tailwind-merge', 'class-variance-authority'],
-          query: ['@tanstack/react-query']
+          query: ['@tanstack/react-query'],
+          routing: ['wouter']
         },
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name?.split('.') || [];
+          const ext = info[info.length - 1];
+          if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(assetInfo.name || '')) {
+            return `assets/images/[name]-[hash].${ext}`;
+          }
+          if (/\.(woff2?|eot|ttf|otf)$/i.test(assetInfo.name || '')) {
+            return `assets/fonts/[name]-[hash].${ext}`;
+          }
+          if (/\.css$/i.test(assetInfo.name || '')) {
+            return `assets/css/[name]-[hash].${ext}`;
+          }
+          return `assets/[name]-[hash].${ext}`;
+        }
       }
     },
     chunkSizeWarningLimit: 1000,
     assetsInlineLimit: 4096,
-    reportCompressedSize: false
+    reportCompressedSize: false,
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
   },
   server: {
     fs: {

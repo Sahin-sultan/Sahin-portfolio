@@ -48,6 +48,10 @@ coverage/
 # GitHub Pages
 _site/
 
+# Netlify
+.netlify/
+functions/
+
 # Package manager lock files (optional - some prefer to include)
 # package-lock.json
 # yarn.lock
