@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/", // Root path for Netlify
+  base: "/", // Root path for Vercel
   plugins: [react()],
   resolve: {
     alias: {
@@ -22,7 +22,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-popover', '@radix-ui/react-tooltip'],
+          ui: ['@radix-ui/react-toast', '@radix-ui/react-tooltip'],
           motion: ['framer-motion'],
           utils: ['lucide-react', 'clsx', 'tailwind-merge', 'class-variance-authority'],
           query: ['@tanstack/react-query'],
