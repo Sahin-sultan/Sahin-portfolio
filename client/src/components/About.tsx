@@ -27,7 +27,7 @@ export default function About() {
                   {/* Front Side */}
                   <div className="flip-card-front absolute inset-0 w-full h-full">
                     <img 
-                      src="/sahin-profile.jpg" 
+                      src="https://res.cloudinary.com/ddzreu2to/image/upload/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
                       alt="Sahin Sultan Profile Photo"
                       className="w-full h-full object-cover"
                     />
