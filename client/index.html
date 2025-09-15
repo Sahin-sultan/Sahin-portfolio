@@ -37,10 +37,23 @@
     <meta name="twitter:description" content="Full-stack developer specializing in React, TypeScript, and AI projects.">
     
     <!-- Performance hints -->
-    <link rel="preload" as="image" href="/sahin-profile.jpg">
+    <link rel="preload" as="image" href="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Performance monitoring script (only load in development or for testing) -->
+    <script>
+      // Only load performance monitoring in development or when testing
+      if (window.location.hostname === 'localhost' || window.location.search.includes('debug=true')) {
+        const script = document.createElement('script');
+        script.src = '/performance-monitor.js';
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    </script>
   </body>
 </html>

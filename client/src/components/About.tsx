@@ -27,18 +27,24 @@ export default function About() {
                   {/* Front Side */}
                   <div className="flip-card-front absolute inset-0 w-full h-full">
                     <img 
-                      src="https://res.cloudinary.com/ddzreu2to/image/upload/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
+                      src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
                       alt="Sahin Sultan Profile Photo"
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      style={{ willChange: 'transform, opacity' }}
                     />
                   </div>
                   
                   {/* Back Side */}
                   <div className="flip-card-back absolute inset-0 w-full h-full">
                     <img 
-                      src="https://res.cloudinary.com/ddzreu2to/image/upload/v1757762173/Generated_Image_September_13_2025_-_2_19PM_ugqqqq.png" 
+                      src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757762173/Generated_Image_September_13_2025_-_2_19PM_ugqqqq.png" 
                       alt="Sahin Sultan Alternative Photo"
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      style={{ willChange: 'transform, opacity' }}
                     />
                   </div>
                 </div>

@@ -7,79 +7,65 @@ interface Certificate {
   title: string;
   issuer: string;
   date: string;
-  credentialId?: string;
+  description: string;
   image: string;
-  verified: boolean;
-  skills: string[];
-  description?: string;
+  verifyUrl: string;
 }
 
-const certificates: Certificate[] = [
+const certificates = [
   {
     id: 1,
-    title: "E-sell Certificate",
-    issuer: "SSU E-sell",
-    date: "2025",
-    credentialId: "E-SELL-2025-001",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757703431/E-cell_Sahin_eije7f.png",
-    verified: true,
-    skills: ["Communication", "Teamwork", "Strategic Thinking"],
-    description: "Entrepreneurship and business development certification"
+    title: "E-Cell Leadership Certificate",
+    issuer: "Entrepreneurship Cell",
+    date: "2024",
+    description: "Leadership and entrepreneurship development program",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
+    verifyUrl: "#"
   },
   {
     id: 2,
-    title: "Deloitte Business Certification",
+    title: "Deloitte Technology Consulting",
     issuer: "Deloitte",
-    date: "2025",
-    credentialId: "DELOITTE-2025-045",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757743010/deloitte_certifications_page-0001_xl2jfg.jpg",
-    verified: true,
-    skills: ["Data Analysis", "Business Strategy", "Problem Solving"],
-    description: "Professional business consulting and analysis certification"
+    date: "2024",
+    description: "Technology consulting and digital transformation certification",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757743010/deloitte_certifications_page-0001_xl2jfg.jpg",
+    verifyUrl: "#"
   },
   {
     id: 3,
-    title: "AWS Prompt Engineering",
+    title: "AWS Cloud Foundations",
     issuer: "Amazon Web Services",
-    date: "2025",
-    credentialId: "AWS-PE-2025-078",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757743378/AWS_Skill_Builder_Course_Completion_Certificate_page-0001_e94qmk.jpg",
-    verified: true,
-    skills: ["Cold Email Writing", "Multi-step Prompts", "AI Integration"],
-    description: "Advanced AI prompt engineering and optimization techniques"
+    date: "2024",
+    description: "Fundamental cloud computing concepts and AWS services",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757743378/AWS_Skill_Builder_Course_Completion_Certificate_page-0001_e94qmk.jpg",
+    verifyUrl: "#"
   },
   {
     id: 4,
-    title: "Introduction to Generative AI",
-    issuer: "IBM SkillsBuild",
-    date: "2022",
-    credentialId: "IBM-AI-2022-156",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757744515/Generatibe_AI_j6bhyn.png",
-    verified: true,
-    skills: ["AI Programming Basics", "Image Generation", "Machine Learning"],
-    description: "Foundational knowledge in generative artificial intelligence"
+    title: "Generative AI Fundamentals",
+    issuer: "Industry Certification",
+    date: "2024",
+    description: "Advanced concepts in artificial intelligence and machine learning",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757744515/Generatibe_AI_j6bhyn.png",
+    verifyUrl: "#"
   },
   {
     id: 5,
-    title: "JavaScript Certification",
-    issuer: "LetsUpgrade",
+    title: "JavaScript Programming",
+    issuer: "Programming Institute",
     date: "2023",
-    credentialId: "LU-JS-2023-089",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757745822/javaScript_page-0001_djb3bx.jpg", // JavaScript-themed fallback image
-    verified: true, 
-    skills: ["JavaScript", "ES6+", "DOM Manipulation", "Async Programming"],
-    description: "Comprehensive JavaScript programming certification covering modern ES6+ features, DOM manipulation, and asynchronous programming concepts"
+    description: "Advanced JavaScript programming and modern ES6+ features",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757745822/javaScript_page-0001_djb3bx.jpg", // JavaScript-themed fallback image
+    verifyUrl: "#"
   },
   {
     id: 6,
-    title: "HTML & CSS Fundamentals",
-    issuer: "LetsUpgrade",
-    date: "2022",
-    credentialId: "LU-WEB-2022-034",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.jpg",
-    verified: true,
-    skills: ["HTML5", "CSS3", "Responsive Design"],
-    description: "Web development fundamentals and responsive design"
+    title: "HTML & CSS Mastery",
+    issuer: "Web Development Institute",
+    date: "2023",
+    description: "Comprehensive web development fundamentals and responsive design",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.jpg",
+    verifyUrl: "#"
   }
 ];
 
@@ -117,13 +103,11 @@ export default function Certificates() {
                   onError={handleImageError}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   data-testid={`certificate-image-${certificate.id}`}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ willChange: 'transform, opacity' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                {certificate.verified && (
-                  <div className="absolute top-4 right-4 bg-green-500 text-white p-2 rounded-full shadow-lg">
-                    <CheckCircle className="w-4 h-4" />
-                  </div>
-                )}
               </div>
               
               {/* Certificate Content */}
@@ -136,12 +120,6 @@ export default function Certificates() {
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    {certificate.verified && (
-                      <span className="text-xs text-green-400 font-medium flex items-center space-x-1">
-                        <CheckCircle className="w-3 h-3" />
-                        <span>Verified</span>
-                      </span>
-                    )}
                   </div>
                 </div>
                 
@@ -157,25 +135,6 @@ export default function Certificates() {
                   <Calendar className="w-4 h-4 text-blue-400" />
                   <span className="text-sm text-muted-foreground">Issued in {certificate.date}</span>
                 </div>
-                
-                {/* Skills Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {certificate.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="text-xs bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 group-hover:border-blue-400/40 group-hover:shadow-sm transition-all duration-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-                
-                {/* Credential ID */}
-                {certificate.credentialId && (
-                  <div className="text-xs text-muted-foreground mb-4">
-                    <span className="font-medium">Credential ID:</span> {certificate.credentialId}
-                  </div>
-                )}
                 
                 {/* Certificate Description */}
                 {certificate.description && (

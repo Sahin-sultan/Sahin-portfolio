@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU Acceleration for smooth animations */
+.flip-card-inner,
+.flip-card-front,
+.flip-card-back,
+.animate-float,
+.animate-boat-float,
+.animate-shine {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Optimize image rendering */
+img {
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
 :root {
   --background: hsl(0, 0%, 3%);
   --foreground: hsl(0, 0%, 98%);

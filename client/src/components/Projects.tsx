@@ -18,8 +18,8 @@ const projects: Project[] = [
     id: 1,
     title: "Pay Predict",
     description: "Advanced machine learning salary predictor that analyzes skills, experience, and industry trends to provide accurate compensation estimates. Built with Python, Streamlit, and deployed for real-time predictions to help professionals make informed career decisions.",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757746493/Screenshot_2025-09-13_122417_oggb8x.png",
-    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1757747067/Screen_Recording_2025-09-13_122322_dvj72k.mp4",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_1200,c_scale/v1757746493/Screenshot_2025-09-13_122417_oggb8x.png",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/q_auto:good,f_auto/v1757747067/Screen_Recording_2025-09-13_122322_dvj72k.mp4",
     liveUrl: "https://pay-predictor.streamlit.app/",
     githubUrl: "https://github.com/Sahin-sultan/pay-predictor",
     technologies: ["Python", "Streamlit", "Machine Learning", "Data Science"]
@@ -28,8 +28,8 @@ const projects: Project[] = [
     id: 2,
     title: "Semester Hub",
     description: "Semester Hub A secure academic note-sharing platform built with React, Supabase, and Tailwind CSS. Features authentication-protected downloads, responsive design with glass morphism UI, comprehensive admin moderation system, and real-time search functionality for collaborative student learning",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1757761548/Screenshot_2025-09-13_163251_xmdb99.png",
-    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1757761756/Screen_Recording_2025-09-13_163816_o9blic.mp4",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_1200,c_scale/v1757761548/Screenshot_2025-09-13_163251_xmdb99.png",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/q_auto:good,f_auto/v1757761756/Screen_Recording_2025-09-13_163816_o9blic.mp4",
     liveUrl: "https://semesterhub.vercel.app/",
     githubUrl: "#",
     technologies: ["React", "Firebase", "TypeScript"]
@@ -104,6 +104,9 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             isHovering && project.videoUrl ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
           }`}
           data-testid={`project-image-${project.id}`}
+          loading="lazy"
+          decoding="async"
+          style={{ willChange: 'transform, opacity' }}
         />
 
         {/* Video Preview */}
