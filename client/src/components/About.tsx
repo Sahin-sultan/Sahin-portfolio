@@ -14,7 +14,7 @@ export default function About() {
         </AnimatedSection>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Photo with Flip Effect */}
+          {/* Profile Photo */}
           <AnimatedSection
             className="flex justify-center lg:justify-start"
             data-testid="about-photo"
@@ -22,33 +22,17 @@ export default function About() {
             y={40}
           >
             <div className="relative">
-              <div className="flip-card rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 animate-boat-float">
-                <div className="flip-card-inner">
-                  {/* Front Side */}
-                  <div className="flip-card-front">
-                    <img 
-                      src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
-                      alt="Sahin Sultan Profile Photo"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      style={{ willChange: 'transform, opacity' }}
-                    />
-                  </div>
-                  
-                  {/* Back Side */}
-                  <div className="flip-card-back">
-                    <img 
-                      src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757762173/Generated_Image_September_13_2025_-_2_19PM_ugqqqq.png" 
-                      alt="Sahin Sultan Alternative Photo"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      style={{ willChange: 'transform, opacity' }}
-                    />
-                  </div>
-                </div>
+              <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 animate-boat-float shadow-xl hover:shadow-2xl">
+                <img 
+                  src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
+                  alt="Sahin Sultan Profile Photo"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
+              {/* Optional: Add a subtle glow effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
             </div>
           </AnimatedSection>
 
