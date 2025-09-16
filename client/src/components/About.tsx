@@ -1,80 +1,101 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function About() {
+  const [isInView, setIsInView] = useState(false);
+
   return (
-    <section id="about" className="py-24 px-6">
+    <motion.section 
+      id="about" 
+      className="py-24 px-6"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      onViewportEnter={() => setIsInView(true)}
+    >
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection
-          className="text-4xl md:text-5xl font-light text-foreground mb-16 text-center"
-          data-testid="about-title"
-          delay={0}
-          y={50}
-        >
-          <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>About</h2>
-        </AnimatedSection>
+        {isInView && (
+          <AnimatedSection
+            className="text-4xl md:text-5xl font-light text-foreground mb-16 text-center"
+            data-testid="about-title"
+            delay={0.2}
+            y={50}
+          >
+            <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>About</h2>
+          </AnimatedSection>
+        )}
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Profile Photo */}
-          <AnimatedSection
-            className="flex justify-center lg:justify-start"
-            data-testid="about-photo"
-            delay={0.1}
-            y={40}
-          >
-            <div className="relative">
-              <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 animate-boat-float shadow-xl hover:shadow-2xl">
-                <img 
-                  src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
-                  alt="Sahin Sultan Profile Photo"
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              {/* Optional: Add a subtle glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
-            </div>
-          </AnimatedSection>
-
-          {/* About Text */}
-          <div className="space-y-6">
+          {isInView && (
             <AnimatedSection
-              className="text-lg text-muted-foreground leading-relaxed"
-              data-testid="about-paragraph-1"
-              delay={0.2}
-              y={40}
-            >
-              <p>
-               I'm <span style={{ color: '#60a5fa' }}>Sahin Sultan</span>, a final-year BCA student at Seacom Skills University with a strong focus on web development and artificial intelligence.
-              </p>
-            </AnimatedSection>
-            
-            <AnimatedSection
-              className="text-lg text-muted-foreground leading-relaxed"
-              data-testid="about-paragraph-2"
-              delay={0.3}
-              y={40}
-            >
-              <p>
-               I've gained practical exposure through internships with <span style={{ color: '#60a5fa' }}>IBM SkillsBuild</span>, where I contributed to projects exploring emerging technologies. A key milestone was founding SemesterHub, a collaborative academic note-sharing platform that simplifies resource-sharing for students and sharpened my problem-solving skills.
-              </p>
-            </AnimatedSection>
-            
-            <AnimatedSection
-              className="text-lg text-muted-foreground leading-relaxed"
-              data-testid="about-paragraph-3"
+              className="flex justify-center lg:justify-start"
+              data-testid="about-photo"
               delay={0.4}
               y={40}
             >
-              <p>
-               Recently, I developed <span style={{ color: '#60a5fa' }}>Pay Predict</span>, a salary prediction website designed to help students and professionals estimate salary ranges based on skills, industry trends, and market data. This project strengthened my ability to merge AI with practical, real-world applications.
+              <div className="relative">
+                <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                  <img 
+                    src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
+                    alt="Sahin Sultan Profile Photo"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                {/* Optional: Add a subtle glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
+              </div>
+            </AnimatedSection>
+          )}
+
+          {/* About Text */}
+          <div className="space-y-6">
+            {isInView && (
+              <AnimatedSection
+                className="text-lg text-muted-foreground leading-relaxed"
+                data-testid="about-paragraph-1"
+                delay={0.6}
+                y={40}
+              >
+                <p>
+                 I'm <span style={{ color: '#60a5fa' }}>Sahin Sultan</span>, a final-year BCA student at Seacom Skills University with a strong focus on web development and artificial intelligence.
+                </p>
+              </AnimatedSection>
+            )}
+            
+            {isInView && (
+              <AnimatedSection
+                className="text-lg text-muted-foreground leading-relaxed"
+                data-testid="about-paragraph-2"
+                delay={0.8}
+                y={40}
+              >
+                <p>
+                 I've gained practical exposure through internships with <span style={{ color: '#60a5fa' }}>IBM SkillsBuild</span>, where I contributed to projects exploring emerging technologies. A key milestone was founding SemesterHub, a collaborative academic note-sharing platform that simplifies resource-sharing for students and sharpened my problem-solving skills.
+                </p>
+              </AnimatedSection>
+            )}
+            
+            {isInView && (
+              <AnimatedSection
+                className="text-lg text-muted-foreground leading-relaxed"
+                data-testid="about-paragraph-3"
+                delay={1.0}
+                y={40}
+              >
+                <p>
+                 Recently, I developed <span style={{ color: '#60a5fa' }}>Pay Predict</span>, a salary prediction website designed to help students and professionals estimate salary ranges based on skills, industry trends, and market data. This project strengthened my ability to merge AI with practical, real-world applications.
 
 As I approach graduation, I'm excited to start my career as a fresher—contributing to impactful projects and creating intelligent, user-friendly applications that connect technology with meaningful solutions.
-              </p>
-            </AnimatedSection>
+                </p>
+              </AnimatedSection>
+            )}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

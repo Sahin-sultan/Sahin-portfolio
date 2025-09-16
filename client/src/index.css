@@ -172,73 +172,80 @@ img {
     color: transparent;
     animation: textShine 3s ease-in-out infinite;
     display: inline-block;
+    will-change: background-position;
+    transform: translate3d(0, 0, 0); /* Force hardware acceleration */
   }
 }
 
 /* Boat floating animation - like a boat gently rocking on water */
 @keyframes boat-float {
   0%, 100% {
-    transform: translateY(0px) rotateZ(0deg);
+    transform: translate3d(0, 0px, 0) rotateZ(0deg);
   }
   16% {
-    transform: translateY(-8px) rotateZ(0.5deg);
+    transform: translate3d(0, -8px, 0) rotateZ(0.5deg);
   }
   33% {
-    transform: translateY(-6px) rotateZ(-0.3deg);
+    transform: translate3d(0, -6px, 0) rotateZ(-0.3deg);
   }
   50% {
-    transform: translateY(-12px) rotateZ(0.8deg);
+    transform: translate3d(0, -12px, 0) rotateZ(0.8deg);
   }
   66% {
-    transform: translateY(-4px) rotateZ(-0.5deg);
+    transform: translate3d(0, -4px, 0) rotateZ(-0.5deg);
   }
   83% {
-    transform: translateY(-10px) rotateZ(0.3deg);
+    transform: translate3d(0, -10px, 0) rotateZ(0.3deg);
   }
 }
 
 /* Swimming effect - gentle floating animation */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translate3d(0, 0px, 0) rotate(0deg);
   }
   25% {
-    transform: translateY(-8px) rotate(0.5deg);
+    transform: translate3d(0, -8px, 0) rotate(0.5deg);
   }
   50% {
-    transform: translateY(-4px) rotate(0deg);
+    transform: translate3d(0, -4px, 0) rotate(0deg);
   }
   75% {
-    transform: translateY(-12px) rotate(-0.5deg);
+    transform: translate3d(0, -12px, 0) rotate(-0.5deg);
   }
 }
 
 /* Shining effect - light sweep from left to right every 5 seconds */
 @keyframes shine {
   0% {
-    transform: translateX(-100%) skewX(-12deg);
+    transform: translate3d(-100%, 0, 0) skewX(-12deg);
   }
   20% {
-    transform: translateX(-100%) skewX(-12deg);
+    transform: translate3d(-100%, 0, 0) skewX(-12deg);
   }
   30% {
-    transform: translateX(100%) skewX(-12deg);
+    transform: translate3d(100%, 0, 0) skewX(-12deg);
   }
   100% {
-    transform: translateX(100%) skewX(-12deg);
+    transform: translate3d(100%, 0, 0) skewX(-12deg);
   }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Force hardware acceleration */
 }
 
 .animate-boat-float {
   animation: boat-float 4s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Force hardware acceleration */
 }
 
 .animate-shine {
   animation: shine 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Custom brand name styling */
@@ -335,6 +342,67 @@ img {
     image-rendering: auto;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+  }
+}
+
+/* Mobile Animation Optimizations */
+@media (max-width: 768px) {
+  /* Slow down animations on mobile for better performance */
+  .animate-boat-float {
+    animation-duration: 6s; /* slower on mobile */
+    animation-timing-function: ease-in-out;
+  }
+  
+  .shine-text {
+    animation-duration: 4s; /* slower text shine on mobile */
+  }
+  
+  .animate-float {
+    animation-duration: 8s; /* slower floating on mobile */
+  }
+  
+  .animate-shine {
+    animation-duration: 7s; /* slower shine effect on mobile */
+  }
+  
+  /* Reduce animation intensity on mobile */
+  @keyframes boat-float {
+    0%, 100% {
+      transform: translate3d(0, 0px, 0) rotateZ(0deg);
+    }
+    16% {
+      transform: translate3d(0, -4px, 0) rotateZ(0.3deg); /* reduced movement */
+    }
+    33% {
+      transform: translate3d(0, -3px, 0) rotateZ(-0.2deg);
+    }
+    50% {
+      transform: translate3d(0, -6px, 0) rotateZ(0.4deg);
+    }
+    66% {
+      transform: translate3d(0, -2px, 0) rotateZ(-0.3deg);
+    }
+    83% {
+      transform: translate3d(0, -5px, 0) rotateZ(0.2deg);
+    }
+  }
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-boat-float,
+  .animate-float,
+  .animate-shine,
+  .shine-text {
+    animation: none !important;
+  }
+  
+  /* Provide subtle static effects instead */
+  .shine-text {
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 

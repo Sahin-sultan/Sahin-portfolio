@@ -13,9 +13,7 @@ export default function Hero() {
           y={60}
         >
           <h1 className="relative inline-block" style={{ fontFamily: 'Playfair Display, serif' }}>
-            <span className="shine-text">
-              Sahin Sultan
-            </span>
+            Sahin Sultan
           </h1>
         </AnimatedSection>
         
