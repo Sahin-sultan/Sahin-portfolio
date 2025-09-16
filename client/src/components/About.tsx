@@ -24,7 +24,7 @@ export default function About() {
             <div className="relative">
               <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 animate-boat-float shadow-xl hover:shadow-2xl">
                 <img 
-                  src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
+                  src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
                   alt="Sahin Sultan Profile Photo"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   loading="lazy"

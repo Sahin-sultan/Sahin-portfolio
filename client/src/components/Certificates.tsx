@@ -19,7 +19,7 @@ const certificates = [
     issuer: "Entrepreneurship Cell",
     date: "2024",
     description: "Leadership and entrepreneurship development program",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
     verifyUrl: "#"
   },
   {
@@ -28,7 +28,7 @@ const certificates = [
     issuer: "Deloitte",
     date: "2024",
     description: "Technology consulting and digital transformation certification",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757743010/deloitte_certifications_page-0001_xl2jfg.jpg",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757743010/deloitte_certifications_page-0001_xl2jfg.jpg",
     verifyUrl: "#"
   },
   {
@@ -37,7 +37,7 @@ const certificates = [
     issuer: "Amazon Web Services",
     date: "2024",
     description: "Fundamental cloud computing concepts and AWS services",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757743378/AWS_Skill_Builder_Course_Completion_Certificate_page-0001_e94qmk.jpg",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757743378/AWS_Skill_Builder_Course_Completion_Certificate_page-0001_e94qmk.jpg",
     verifyUrl: "#"
   },
   {
@@ -46,7 +46,7 @@ const certificates = [
     issuer: "Industry Certification",
     date: "2024",
     description: "Advanced concepts in artificial intelligence and machine learning",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757744515/Generatibe_AI_j6bhyn.png",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757744515/Generatibe_AI_j6bhyn.png",
     verifyUrl: "#"
   },
   {
@@ -55,7 +55,7 @@ const certificates = [
     issuer: "Programming Institute",
     date: "2023",
     description: "Advanced JavaScript programming and modern ES6+ features",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757745822/javaScript_page-0001_djb3bx.jpg", // JavaScript-themed fallback image
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745822/javaScript_page-0001_djb3bx.jpg", // JavaScript-themed fallback image
     verifyUrl: "#"
   },
   {
@@ -64,7 +64,7 @@ const certificates = [
     issuer: "Web Development Institute",
     date: "2023",
     description: "Comprehensive web development fundamentals and responsive design",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto:good,w_800,c_scale/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.jpg",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.jpg",
     verifyUrl: "#"
   }
 ];

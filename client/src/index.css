@@ -302,3 +302,50 @@ img {
   color: white;
   transform: rotateY(180deg);
 }
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Optimize scrolling performance */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Reduce GPU usage on mobile */
+  .animate-fade-in-up,
+  .animate-slide-in-left,
+  .animate-bounce-gentle {
+    will-change: auto;
+    transform: none;
+  }
+  
+  /* Simplify hover effects on mobile */
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  /* Optimize image rendering */
+  img {
+    image-rendering: auto;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  .hover\:shadow-2xl:hover,
+  .hover\:border-white\/20:hover,
+  .hover\:scale-105:hover {
+    box-shadow: inherit;
+    border-color: inherit;
+    transform: none;
+  }
+}
