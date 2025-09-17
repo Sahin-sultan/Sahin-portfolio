@@ -19,7 +19,7 @@ const certificates = [
     issuer: "Entrepreneurship Cell",
     date: "2024",
     description: "Leadership and entrepreneurship development program",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
+    image: "https://r    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
     verifyUrl: "#"
   },
   {
@@ -65,12 +65,7 @@ const certificates = [
     date: "2023",
     description: "Comprehensive web development fundamentals and responsive design",
     image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.jpg",
-    verifyUrl: "#"
-  }
-];
-
-export default function Certificates() {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+cEvent<HTMLImageElement>) => {
     e.currentTarget.src = "https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300";
   };
 
