@@ -118,10 +118,10 @@ const CertificateCard = ({ certificate, index }: { certificate: Certificate; ind
           src={isLoaded ? certificate.image : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzczNzM3Ii8+PC9zdmc+'}
           alt={`${certificate.title} certificate`}
           onError={handleImageError}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
-          data-testid={`certificate-image-${certificate.id}`}
           loading="lazy"
           decoding="async"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 ease-out"
+          data-testid={`certificate-image-${certificate.id}`}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           style={{ 
             transform: 'translateZ(0)',

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
 interface GlowingSpot {
   id: number;
@@ -10,36 +10,59 @@ interface GlowingSpot {
   duration: number;
 }
 
-export default function AnimatedBackground() {
+const AnimatedBackground = memo(function AnimatedBackground() {
   const [spots, setSpots] = useState<GlowingSpot[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      const isMobileDevice = window.innerWidth <= 768 || 
+                             /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Generate random glowing spots
     const generateSpots = () => {
       const newSpots: GlowingSpot[] = [];
       const colors = [
-        "rgba(147, 51, 234, 0.3)", // Purple
-        "rgba(59, 130, 246, 0.3)", // Blue
-        "rgba(168, 85, 247, 0.3)", // Violet
-        "rgba(99, 102, 241, 0.3)", // Indigo
-        "rgba(79, 70, 229, 0.3)", // Blue-indigo
+        "rgba(147, 51, 234, 0.2)", // Purple - reduced opacity for mobile
+        "rgba(59, 130, 246, 0.2)", // Blue
+        "rgba(168, 85, 247, 0.2)", // Violet
       ];
 
-      for (let i = 0; i < 6; i++) {
+      // Reduce number of spots on mobile for better performance
+      const spotCount = isMobile ? 2 : 6;
+      
+      for (let i = 0; i < spotCount; i++) {
         newSpots.push({
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 400 + 200,
+          size: Math.random() * (isMobile ? 200 : 400) + (isMobile ? 100 : 200),
           color: colors[Math.floor(Math.random() * colors.length)],
-          duration: Math.random() * 20 + 15, // 15-35 seconds
+          duration: Math.random() * (isMobile ? 30 : 20) + (isMobile ? 20 : 15), // Slower on mobile
         });
       }
       setSpots(newSpots);
     };
 
     generateSpots();
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Don't render complex background on mobile for better performance
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" />
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
@@ -99,4 +122,6 @@ export default function AnimatedBackground() {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-violet-500/5 via-transparent to-transparent blur-3xl" />
     </div>
   );
-}
+});
+
+export default AnimatedBackground;

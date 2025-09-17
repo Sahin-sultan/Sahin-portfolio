@@ -22,16 +22,58 @@
   }
 }
 
-/* GPU Acceleration for smooth animations */
-.flip-card-inner,
-.flip-card-front,
-.flip-card-back,
-.animate-float,
-.animate-boat-float,
-.animate-shine {
-  will-change: transform, opacity;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+/* Aggressive mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Disable all heavy animations on mobile */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Remove complex animations entirely on mobile */
+  .animate-boat-float,
+  .animate-float,
+  .animate-shine,
+  .shine-text {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Simplify hover effects */
+  .hover\:scale-105:hover,
+  .hover\:shadow-lg:hover,
+  .transform:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+}
+
+/* GPU Acceleration for smooth animations - Desktop only */
+@media (min-width: 769px) {
+  .flip-card-inner,
+  .flip-card-front,
+  .flip-card-back,
+  .animate-float,
+  .animate-boat-float,
+  .animate-shine {
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+}
+
+/* Mobile: Disable GPU acceleration to save battery and performance */
+@media (max-width: 768px) {
+  .flip-card-inner,
+  .flip-card-front,
+  .flip-card-back,
+  .animate-float,
+  .animate-boat-float,
+  .animate-shine {
+    will-change: auto;
+    transform-style: flat;
+    backface-visibility: visible;
+  }
 }
 
 /* Optimize image rendering */
@@ -39,6 +81,18 @@ img {
   image-rendering: auto;
   image-rendering: crisp-edges;
   image-rendering: -webkit-optimize-contrast;
+}
+
+/* Mobile image optimizations */
+@media (max-width: 768px) {
+  img {
+    image-rendering: auto;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Optimize for mobile performance */
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 :root {
@@ -127,6 +181,28 @@ img {
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: var(--font-sans);
+  }
+  
+  /* Mobile performance optimizations */
+  @media (max-width: 768px) {
+    html {
+      scroll-behavior: auto; /* Disable smooth scroll on mobile for performance */
+    }
+    
+    body {
+      overflow-x: hidden; /* Prevent horizontal scroll issues */
+    }
+    
+    /* Use content containment for better performance */
+    section {
+      contain: layout style paint;
+    }
+    
+    /* Optimize animations */
+    * {
+      animation-fill-mode: both;
+      animation-play-state: running;
+    }
   }
 }
 
@@ -323,14 +399,14 @@ img {
 @media (max-width: 768px) {
   /* Reduce animation complexity on mobile */
   * {
-    animation-duration: 0.3s !important;
-    transition-duration: 0.3s !important;
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
   }
   
   /* Optimize scrolling performance */
   html {
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Disable smooth scroll on mobile */
   }
   
   /* Reduce GPU usage on mobile */
@@ -351,6 +427,41 @@ img {
     image-rendering: auto;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    /* Optimize for mobile performance */
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Remove complex backdrop filters on mobile */
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* Optimize text rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed; /* Faster than optimizeLegibility on mobile */
+  }
+  
+  /* Reduce shadow complexity */
+  .shadow-2xl,
+  .shadow-xl,
+  .shadow-lg {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Optimize form elements */
+  input, textarea, button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+    /* Prevent zoom on focus */
+    font-size: max(16px, 1rem);
   }
 }
 
@@ -452,5 +563,34 @@ img {
   .animate-pulse {
     animation-duration: 1s;
     animation-iteration-count: infinite;
+  }
+  
+  /* Mobile performance optimizations */
+  * {
+    /* Disable expensive CSS properties on mobile */
+    text-shadow: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Optimize scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Reduce repaints and reflows */
+  img, video {
+    image-rendering: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Optimize touch interactions */
+  .glass-card,
+  .glass-card-light,
+  .glass-card-subtle {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.8) !important;
   }
 }
