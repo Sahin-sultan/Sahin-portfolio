@@ -19,7 +19,7 @@ const certificates = [
     issuer: "Entrepreneurship Cell",
     date: "2024",
     description: "Leadership and entrepreneurship development program",
-    image: "https://r    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757703431/E-cell_Sahin_eije7f.png",
     verifyUrl: "#"
   },
   {
@@ -28,7 +28,7 @@ const certificates = [
     issuer: "Deloitte",
     date: "2024",
     description: "Technology consulting and digital transformation certification",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757743010/deloitte_certifications_page-0001_xl2jfg.jpg",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757743010/deloitte_certifications_page-0001_xl2jfg.webp",
     verifyUrl: "#"
   },
   {
@@ -37,7 +37,7 @@ const certificates = [
     issuer: "Amazon Web Services",
     date: "2024",
     description: "Fundamental cloud computing concepts and AWS services",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757743378/AWS_Skill_Builder_Course_Completion_Certificate_page-0001_e94qmk.jpg",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757743378/AWS_Skill_Builder_Course_Completion_Certificate_page-0001_e94qmk.webp",
     verifyUrl: "#"
   },
   {
@@ -55,7 +55,7 @@ const certificates = [
     issuer: "Programming Institute",
     date: "2023",
     description: "Advanced JavaScript programming and modern ES6+ features",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745822/javaScript_page-0001_djb3bx.jpg", // JavaScript-themed fallback image
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745822/javaScript_page-0001_djb3bx.webp",
     verifyUrl: "#"
   },
   {
@@ -64,11 +64,17 @@ const certificates = [
     issuer: "Web Development Institute",
     date: "2023",
     description: "Comprehensive web development fundamentals and responsive design",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.jpg",
-cEvent<HTMLImageElement>) => {
-    e.currentTarget.src = "https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300";
-  };
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/v1757745091/HTML_CSS_certificate_page-0001_gfxm9x.webp",
+    verifyUrl: "#"
+  }
+];
 
+const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  e.currentTarget.src = "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_400,c_scale/placeholder-certificate.webp";
+  e.currentTarget.alt = "Certificate placeholder";
+};
+
+export default function Certificates() {
   return (
     <section id="certificates" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -81,11 +87,11 @@ cEvent<HTMLImageElement>) => {
           <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>Certifications</h2>
         </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {certificates.map((certificate, index) => (
             <AnimatedSection
               key={certificate.id}
-              className="glass-card rounded-xl overflow-hidden hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 group cursor-pointer hover:glass-card-light transform hover:-translate-y-2"
+              className="glass-card rounded-xl overflow-hidden hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 group cursor-pointer hover:glass-card-light transform hover:-translate-y-1 md:hover:-translate-y-2"
               data-testid={`certificate-${certificate.id}`}
               delay={index * 0.1}
               y={40}
@@ -94,13 +100,16 @@ cEvent<HTMLImageElement>) => {
               <div className="aspect-video bg-muted overflow-hidden relative">
                 <img
                   src={certificate.image}
-                  alt={certificate.title}
+                  alt={`${certificate.title} certificate`}
                   onError={handleImageError}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   data-testid={`certificate-image-${certificate.id}`}
                   loading="lazy"
                   decoding="async"
-                  style={{ willChange: 'transform, opacity' }}
+                  style={{ 
+                    willChange: 'transform', 
+                    transform: 'translateZ(0)' // Force hardware acceleration
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
