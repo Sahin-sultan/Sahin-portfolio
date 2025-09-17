@@ -13,7 +13,7 @@ export default function Hero() {
           y={60}
         >
           <h1 className="relative inline-block" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Sah            Sahin Sultan
+            Sahin Sultan
           </h1>
         </AnimatedSection>
         
@@ -49,7 +49,9 @@ export default function Hero() {
           <button
             onClick={() => {
               const link = document.createElement('a');
-              link.href = 'https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_800,c_scale/v1757742222/1757742066940-075ccb3c-2396-40a1-922d-d71217aa62d4_1_iqvhsb.jpg';
+              link.href = 'https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_800,c_scale/v1757742222/1757742066940-075ccb3c-2396-40a1-922d-d71217aa62d4_1_iqvhsb.webp';
+              link.download = 'Sahin_Sultan_Resume.webp';
+              link.target = '_blank';
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
