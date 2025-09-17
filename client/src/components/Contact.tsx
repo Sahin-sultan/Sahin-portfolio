@@ -26,22 +26,37 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
     
+    // Add haptic feedback for mobile
+    if (navigator.vibrate) {
+      navigator.vibrate(50); // Short vibration
+    }
+    
     try {
+      // Use FormData for better mobile compatibility
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+
+      // Add additional fields for better Formspree compatibility
+      formDataToSend.append('_replyto', formData.email);
+      formDataToSend.append('_subject', `Portfolio Contact: ${formData.subject}`);
+
       const response = await fetch('https://formspree.io/f/mwpndrvb', {
         method: 'POST',
+        body: formDataToSend,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        })
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
         setSubmitStatus('success');
+        // Success haptic feedback
+        if (navigator.vibrate) {
+          navigator.vibrate([100, 50, 100]); // Success pattern
+        }
         // Reset form
         setFormData({
           name: '',
@@ -49,12 +64,35 @@ export default function Contact() {
           subject: '',
           message: ''
         });
+        
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
       } else {
+        const errorData = await response.json();
+        console.error('Form submission failed:', errorData);
         setSubmitStatus('error');
+        // Error haptic feedback
+        if (navigator.vibrate) {
+          navigator.vibrate([200, 100, 200]); // Error pattern
+        }
+        // Auto-hide error message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      // Error haptic feedback
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]); // Error pattern
+      }
+      // Auto-hide error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -152,7 +190,18 @@ export default function Contact() {
           y={20}
         >
           <div className="mt-16 max-w-2xl mx-auto">
-            <div className="bg-white/5 rounded-2xl p-8 md:p-10 shadow-xl border border-white/20">
+            <div className="relative bg-white/5 rounded-2xl p-8 md:p-10 shadow-xl border border-white/20">
+              {/* Mobile Loading Overlay */}
+              {isSubmitting && (
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-2xl flex items-center justify-center z-10">
+                  <div className="text-center text-white">
+                    <div className="w-8 h-8 border-3 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-lg font-medium">Sending your message...</p>
+                    <p className="text-sm text-gray-300 mt-2">Please wait</p>
+                  </div>
+                </div>
+              )}
+              
               <h3 className="text-2xl md:text-3xl font-light text-foreground mb-8 text-center" style={{ fontFamily: 'DM Serif Text, serif' }}>
                 Send Me a Message
               </h3>
@@ -250,14 +299,22 @@ export default function Contact() {
 
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
-                  <div className="mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-center">
-                    ✅ Message sent successfully! I'll get back to you soon.
+                  <div className="mt-4 p-6 bg-green-500/20 border-2 border-green-500/40 rounded-lg text-green-300 text-center text-lg font-medium shadow-lg animate-pulse">
+                    <div className="flex items-center justify-center space-x-2">
+                      <span className="text-2xl">✅</span>
+                      <span>Message sent successfully!</span>
+                    </div>
+                    <p className="text-sm text-green-400 mt-2">I'll get back to you soon.</p>
                   </div>
                 )}
                 
                 {submitStatus === 'error' && (
-                  <div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-center">
-                    ❌ Failed to send message. Please try again or email me directly.
+                  <div className="mt-4 p-6 bg-red-500/20 border-2 border-red-500/40 rounded-lg text-red-300 text-center text-lg font-medium shadow-lg animate-pulse">
+                    <div className="flex items-center justify-center space-x-2">
+                      <span className="text-2xl">❌</span>
+                      <span>Failed to send message</span>
+                    </div>
+                    <p className="text-sm text-red-400 mt-2">Please try again or email me directly at sahinsultan095@gmail.com</p>
                   </div>
                 )}
               </form>

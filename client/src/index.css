@@ -425,4 +425,32 @@ img {
     border-color: inherit;
     transform: none;
   }
+  
+  /* Mobile form optimizations */
+  input, textarea, button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+  }
+  
+  /* Ensure form inputs are properly sized on mobile */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  /* Better button touch targets */
+  button {
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+  
+  /* Optimize form submission feedback */
+  .animate-pulse {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
 }
