@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Line clamp utilities for text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Mobile Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
