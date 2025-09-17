@@ -13,8 +13,8 @@ export default function AnimatedSection({
   children, 
   className = "", 
   delay = 0, 
-  duration = 0.6,
-  y = 50 
+  duration = 0.4,
+  y = 30 
 }: AnimatedSectionProps) {
   return (
     <motion.div
@@ -28,8 +28,8 @@ export default function AnimatedSection({
         y: 0 
       }}
       viewport={{ 
-        once: false, 
-        amount: 0.2 
+        once: true, 
+        amount: 0.1 
       }}
       transition={{ 
         duration: duration,
