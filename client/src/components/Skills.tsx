@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { memo, useMemo } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Code, Palette, Database, Globe } from "lucide-react";
@@ -14,28 +13,16 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const SkillBar = memo(({ skill, categoryIndex, skillIndex }: {
-  skill: Skill;
-  categoryIndex: number;
-  skillIndex: number;
-}) => (
+const SkillBar = memo(({ skill }: { skill: Skill }) => (
   <div className="space-y-2">
     <div className="flex justify-between items-center">
-      <span className="text-sm text-foreground">{skill.name}</span>
-      <span className="text-xs text-muted-foreground">{skill.level}%</span>
+      <span className="text-sm font-medium text-foreground">{skill.name}</span>
+      <span className="text-xs text-muted-foreground font-semibold">{skill.level}%</span>
     </div>
-    <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: `${skill.level}%` }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ 
-          duration: 1.2, 
-          ease: "easeOut", 
-          delay: (categoryIndex * 0.1) + (skillIndex * 0.1) + 0.5
-        }}
-        className="h-full bg-foreground rounded-full"
-        data-testid={`skill-bar-${categoryIndex}-${skillIndex}`}
+    <div className="w-full bg-white/10 rounded-full h-2">
+      <div
+        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
+        style={{ width: `${skill.level}%` }}
       />
     </div>
   </div>
@@ -54,17 +41,8 @@ export default function Skills() {
         { name: "JavaScript", level: 95 },
         { name: "Next.js", level: 85 },
         { name: "Tailwind CSS", level: 90 },
-      ]
-    },
-    {
-      title: "Design & UX",
-      icon: <Palette className="w-6 h-6" />,
-      skills: [
-        { name: "UI/UX Design", level: 92 },
-        { name: "Figma", level: 95 },
-        { name: "Canva", level: 88 },
-        { name: "Photoshop", level: 85 },
-        // { name: "Illustrator", level: 80 },
+        { name: "HTML5", level: 98 },
+        { name: "CSS3", level: 95 }
       ]
     },
     {
@@ -73,20 +51,32 @@ export default function Skills() {
       skills: [
         { name: "Node.js", level: 85 },
         { name: "Express.js", level: 88 },
+        { name: "Python", level: 82 },
         { name: "SQL", level: 80 },
-        // { name: "MongoDB", level: 75 },
         { name: "REST APIs", level: 90 },
+        { name: "Firebase", level: 78 }
       ]
     },
     {
-      title: "Web Technologies",
+      title: "AI & Machine Learning",
       icon: <Globe className="w-6 h-6" />,
       skills: [
-        { name: "HTML5", level: 98 },
-        { name: "CSS3", level: 95 },
-        { name: "JavaScript (ES6+)", level: 85 },
-        { name: "Git & GitHub", level: 78 },
+        { name: "Machine Learning", level: 85 },
+        { name: "Data Analysis", level: 80 },
+        { name: "Streamlit", level: 88 },
+        { name: "Python Libraries", level: 82 },
+        { name: "AI Integration", level: 75 }
+      ]
+    },
+    {
+      title: "Design & Tools",
+      icon: <Palette className="w-6 h-6" />,
+      skills: [
+        { name: "UI/UX Design", level: 92 },
+        { name: "Figma", level: 95 },
+        { name: "Git & GitHub", level: 88 },
         { name: "Vercel", level: 85 },
+        { name: "Responsive Design", level: 93 }
       ]
     }
   ], []);
@@ -103,31 +93,29 @@ export default function Skills() {
           <h2 style={{ fontFamily: 'DM Serif Text, serif' }}>Skills</h2>
         </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <AnimatedSection
               key={category.title}
-              className="glass-card rounded-lg p-6 hover:border-white/30 transition-all duration-300 group hover:glass-card-light"
+              className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur-sm hover:border-white/20 transition-colors duration-300"
               data-testid={`skill-category-${categoryIndex}`}
               delay={categoryIndex * 0.1}
-              y={40}
+              y={30}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className="text-foreground group-hover:text-primary transition-colors duration-300">
+                <div className="text-blue-400">
                   {category.icon}
                 </div>
-                <h3 className="text-lg font-medium text-foreground">
+                <h3 className="text-lg md:text-xl font-semibold text-foreground">
                   {category.title}
                 </h3>
               </div>
               
               <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill) => (
                   <SkillBar
                     key={skill.name}
                     skill={skill}
-                    categoryIndex={categoryIndex}
-                    skillIndex={skillIndex}
                   />
                 ))}
               </div>
