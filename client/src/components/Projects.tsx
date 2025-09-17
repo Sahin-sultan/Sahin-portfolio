@@ -19,7 +19,7 @@ const projects: Project[] = [
     title: "Pay Predict",
     description: "Advanced machine learning salary predictor that analyzes skills, experience, and industry trends to provide accurate compensation estimates. Built with Python, Streamlit, and deployed for real-time predictions to help professionals make informed career decisions.",
     image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_600,c_scale/v1757746493/Screenshot_2025-09-13_122417_oggb8x.webp",
-    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/f_auto,q_auto,w_800/v1757747067/Screen_Recording_2025-09-13_122322_dvj72k.mp4",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1758084983/Screen_Recording_2025-09-13_122322_fiigwt.webm",
     liveUrl: "https://pay-predictor.streamlit.app/",
     githubUrl: "https://github.com/Sahin-sultan/pay-predictor",
     technologies: ["Python", "Streamlit", "Machine Learning", "Data Science"]
@@ -29,7 +29,7 @@ const projects: Project[] = [
     title: "Semester Hub",
     description: "Semester Hub A secure academic note-sharing platform built with React, Supabase, and Tailwind CSS. Features authentication-protected downloads, responsive design with glass morphism UI, comprehensive admin moderation system, and real-time search functionality for collaborative student learning",
     image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_600,c_scale/v1757761548/Screenshot_2025-09-13_163251_xmdb99.webp",
-    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/f_auto,q_auto,w_800/v1757761756/Screen_Recording_2025-09-13_163816_o9blic.mp4",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1758086068/Screen_Recording_2025-09-13_163816_w0c2mm.webm",
     liveUrl: "https://semesterhub.vercel.app/",
     githubUrl: "#",
     technologies: ["React", "Firebase", "TypeScript"]
