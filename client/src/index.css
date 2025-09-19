@@ -34,6 +34,7 @@
   .animate-boat-float,
   .animate-float,
   .animate-shine,
+  .animate-gentle-float,
   .shine-text {
     animation: none !important;
     transform: none !important;
@@ -300,54 +301,64 @@ img {
   }
 }
 
-/* Mobile-optimized gentle floating animation */
-@keyframes gentle-float {
+/* Mobile-optimized gentle floating animation with webkit prefixes */
+@-webkit-keyframes gentle-float {
   0%, 100% {
+    -webkit-transform: translate3d(0, 0px, 0) rotate(0deg);
     transform: translate3d(0, 0px, 0) rotate(0deg);
   }
   25% {
+    -webkit-transform: translate3d(0, -6px, 0) rotate(0.3deg);
     transform: translate3d(0, -6px, 0) rotate(0.3deg);
   }
   50% {
+    -webkit-transform: translate3d(0, -3px, 0) rotate(0deg);
     transform: translate3d(0, -3px, 0) rotate(0deg);
   }
   75% {
+    -webkit-transform: translate3d(0, -8px, 0) rotate(-0.3deg);
+    transform: translate3d(0, -8px, 0) rotate(-0.3deg);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0px, 0) rotate(0deg);
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  25% {
+    -webkit-transform: translate3d(0, -6px, 0) rotate(0.3deg);
+    transform: translate3d(0, -6px, 0) rotate(0.3deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, -3px, 0) rotate(0deg);
+    transform: translate3d(0, -3px, 0) rotate(0deg);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -8px, 0) rotate(-0.3deg);
     transform: translate3d(0, -8px, 0) rotate(-0.3deg);
   }
 }
 
 .animate-gentle-float {
+  -webkit-animation: gentle-float 4s ease-in-out infinite;
+  -moz-animation: gentle-float 4s ease-in-out infinite;
+  -o-animation: gentle-float 4s ease-in-out infinite;
   animation: gentle-float 4s ease-in-out infinite;
+  -webkit-will-change: transform;
   will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); /* Force hardware acceleration */
-}
-
-/* Mobile optimization for floating animation */
-@media (max-width: 768px) {
-  .animate-gentle-float {
-    animation: gentle-float 6s ease-in-out infinite; /* Slower on mobile */
-  }
-  
-  @keyframes gentle-float {
-    0%, 100% {
-      transform: translate3d(0, 0px, 0) rotate(0deg);
-    }
-    25% {
-      transform: translate3d(0, -4px, 0) rotate(0.2deg); /* Reduced movement */
-    }
-    50% {
-      transform: translate3d(0, -2px, 0) rotate(0deg);
-    }
-    75% {
-      transform: translate3d(0, -5px, 0) rotate(-0.2deg);
-    }
-  }
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .animate-gentle-float {
+    -webkit-animation: none !important;
     animation: none !important;
+    -webkit-transform: none !important;
     transform: none !important;
   }
 }
