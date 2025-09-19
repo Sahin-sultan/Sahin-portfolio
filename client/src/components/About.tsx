@@ -36,7 +36,7 @@ export default function About() {
               y={40}
             >
               <div className="relative">
-                <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl">
+                <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl animate-gentle-float">
                   <img 
                     src="https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_800,c_fill,g_face/v1757956374/Generated_Image_September_15_2025_-_1_43PM_livwcd.webp" 
                     alt="Sahin Sultan Profile Photo"
@@ -45,8 +45,8 @@ export default function About() {
                     decoding="async"
                   />
                 </div>
-                {/* Optional: Add a subtle glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none"></div>
+                {/* Optional: Add a subtle glow effect with floating animation */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-blue-500/10 to-transparent pointer-events-none animate-gentle-float" style={{ animationDelay: '0.5s' }}></div>
               </div>
             </AnimatedSection>
           )}

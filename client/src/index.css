@@ -300,6 +300,58 @@ img {
   }
 }
 
+/* Mobile-optimized gentle floating animation */
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(0, -6px, 0) rotate(0.3deg);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate3d(0, -8px, 0) rotate(-0.3deg);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Force hardware acceleration */
+}
+
+/* Mobile optimization for floating animation */
+@media (max-width: 768px) {
+  .animate-gentle-float {
+    animation: gentle-float 6s ease-in-out infinite; /* Slower on mobile */
+  }
+  
+  @keyframes gentle-float {
+    0%, 100% {
+      transform: translate3d(0, 0px, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate3d(0, -4px, 0) rotate(0.2deg); /* Reduced movement */
+    }
+    50% {
+      transform: translate3d(0, -2px, 0) rotate(0deg);
+    }
+    75% {
+      transform: translate3d(0, -5px, 0) rotate(-0.2deg);
+    }
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gentle-float {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* Shining effect - light sweep from left to right every 5 seconds */
 @keyframes shine {
   0% {
