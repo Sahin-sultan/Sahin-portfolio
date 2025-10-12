@@ -68,11 +68,11 @@ const certificates = [
   },
   {
     id: 4,
-    title: "Generative AI Fundamentals",
-    issuer: "Industry Certification",
-    date: "2024",
-    description: "Advanced concepts in artificial intelligence and machine learning",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_600,h_400,c_fill/v1757744515/Generatibe_AI_j6bhyn.webp",
+    title: "Introduction to Generative AI",
+    issuer: "Google Cloud & SimpliLearn",
+    date: "2025",
+    description: "Professional course on generative AI fundamentals and applications",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1760249010/generative_ai_tjdz7r.webp",
     verifyUrl: "#"
   },
   {
