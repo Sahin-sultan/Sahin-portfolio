@@ -77,11 +77,11 @@ const certificates = [
   },
   {
     id: 5,
-    title: "JavaScript Programming",
-    issuer: "Programming Institute",
-    date: "2023",
-    description: "Advanced JavaScript programming and modern ES6+ features",
-    image: "https://res.cloudinary.com/ddzreu2to/image/upload/f_auto,q_auto,w_600,h_400,c_fill/v1757745822/javaScript_page-0001_djb3bx.webp",
+    title: "to Prompt Engineering with GitHub Copilot",
+    issuer: "Microsoft",
+    date: "2025",
+    description: "Prompt Engineering techniques using GitHub Copilot",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1763439034/Prompt_Engineering_Microsoft_page-0001_vlpnzb.jpg",
     verifyUrl: "#"
   },
   {
