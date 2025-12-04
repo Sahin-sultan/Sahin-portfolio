@@ -34,25 +34,26 @@ const projects: Project[] = [
     githubUrl: "#",
     technologies: ["React", "Firebase", "TypeScript"]
   },
-  // {
-  //   id: 3,
-  //   title: "Creative Portfolio",
-  //   description: "Personal portfolio website for a creative director featuring smooth animations, dynamic image galleries, and responsive typography. Optimized for performance and accessibility.",
-  //   image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-  //   liveUrl: "#",
-  //   githubUrl: "#",
-  //   technologies: ["Next.js", "Framer Motion", "GSAP"]
-  // },
-  // {
-  //   id: 4,
-  //   title: "Analytics Dashboard",
-  //   description: "Comprehensive analytics dashboard with interactive charts, real-time data visualization, and custom reporting features. Built with D3.js and React for seamless data exploration.",
-  //   image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-  //   videoUrl: "https://sample-videos.com/zip/10/mp4/720/SampleVideo_720x480_2mb.mp4",
-  //   liveUrl: "#",
-  //   githubUrl: "#",
-  //   technologies: ["React", "D3.js", "Node.js", "MongoDB"]
-  // }
+  {
+    id: 3,
+    title: "Weatherly",
+    description: "A modern and responsive weather application that provides real-time weather updates using API integration. Users can search for any city to view current conditions such as temperature, humidity, wind speed, and forecast details.",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1764867393/Screenshot_2025-12-04_222458_sgas7e.png",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1764867813/weatherly_ixeyrb.webm",
+    liveUrl: "https://theweatherly.netlify.app/",
+    githubUrl: "https://github.com/Sahin-sultan/Weatherly",
+    technologies: ["Next.js 14", "React 18", "Tailwind CSS"]
+  },
+  {
+    id: 4,
+    title: "Talky",
+    description: "Talky AI is a smart and reliable conversational model designed to give clear, natural, and helpful responses. It understands context, solves doubts, and makes everyday communication easier",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1764868282/Screenshot_2025-12-04_224103_qh8ms0.png",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1764868602/takly_wpduzd.webm",
+    liveUrl: "https://talkychat.vercel.app/",
+    githubUrl: "https://github.com/Sahin-sultan/Talky",
+    technologies: ["HTML5", "CSS3", "Vanilla JavaScript", "Python 3.9+", "FastAPI", "Groq API"]
+  }
 ];
 
 // Project Card Component with Video Hover
