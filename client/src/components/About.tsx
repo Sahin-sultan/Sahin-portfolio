@@ -74,7 +74,7 @@ export default function About() {
                 y={40}
               >
                 <p>
-                 I've gained practical exposure through internships with <span style={{ color: '#60a5fa' }}>IBM SkillsBuild</span>, where I contributed to projects exploring emerging technologies. A key milestone was founding SemesterHub, a collaborative academic note-sharing platform that simplifies resource-sharing for students and sharpened my problem-solving skills.
+                  I developed <span style={{ color: '#60a5fa' }}>Pay Predict</span>, a salary prediction platform built to help students and professionals estimate salary ranges based on skills, industry trends, and market data. This project strengthened my ability to merge AI with real-world applications and create tools that offer genuine value.
                 </p>
               </AnimatedSection>
             )}
@@ -87,9 +87,33 @@ export default function About() {
                 y={40}
               >
                 <p>
-                 Recently, I developed <span style={{ color: '#60a5fa' }}>Pay Predict</span>, a salary prediction website designed to help students and professionals estimate salary ranges based on skills, industry trends, and market data. This project strengthened my ability to merge AI with practical, real-world applications.
-
-As I approach graduation, I'm excited to start my career as a fresher—contributing to impactful projects and creating intelligent, user-friendly applications that connect technology with meaningful solutions.
+                  I also built <span style={{ color: '#60a5fa' }}>Talky</span>, a modern AI-powered chatbot designed for real-time conversations, smooth user authentication, and a clean, responsive interface. It reflects my interest in developing intelligent systems that feel natural and easy to use.
+                </p>
+              </AnimatedSection>
+            )}
+            
+            {isInView && (
+              <AnimatedSection
+                className="text-lg text-muted-foreground leading-relaxed"
+                data-testid="about-paragraph-4"
+                delay={1.2}
+                y={40}
+              >
+                <p>
+                  My next project, <span style={{ color: '#60a5fa' }}>Weatherly</span>, is a responsive weather application that delivers real-time weather updates through API integration. Users can search any city to view temperature, humidity, wind speed, and forecast information in a simple and visually appealing layout.
+                </p>
+              </AnimatedSection>
+            )}
+            
+            {isInView && (
+              <AnimatedSection
+                className="text-lg text-muted-foreground leading-relaxed"
+                data-testid="about-paragraph-5"
+                delay={1.4}
+                y={40}
+              >
+                <p>
+                  As I approach graduation, I'm excited to start my career as a fresher—working on impactful projects and creating intelligent, user-friendly applications that connect technology with meaningful solutions.
                 </p>
               </AnimatedSection>
             )}
