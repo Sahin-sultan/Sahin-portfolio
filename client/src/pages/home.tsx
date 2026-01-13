@@ -6,12 +6,12 @@ import Projects from "@/components/Projects";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import SplineBackground from "@/components/SplineBackground";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 export default function Home() {
   return (
     <div className="min-h-screen relative">
-      <SplineBackground />
+      <AnimatedBackground />
       <Navigation />
       <Hero />
       <About />
