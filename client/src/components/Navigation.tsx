@@ -6,6 +6,8 @@ export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
   const [currentNameIndex, setCurrentNameIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   
   const names = ["Sahin", "শাহিন", "साहिन", "شاهين", "サヒン"];
 
@@ -13,6 +15,9 @@ export default function Navigation() {
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "work", "certificates", "contact"];
       const scrollPosition = window.scrollY + 200;
+
+      // Check if scrolled down
+      setIsScrolled(window.scrollY > 50);
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -53,13 +58,27 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
+  // Determine if navbar should show nav items
+  // Show nav items if: on home section OR hovered
+  // Hide nav items if: scrolled down and not on home and not hovered
+  const showNavItems = activeSection === "home" || isHovered;
+  const isCompact = isScrolled && !isHovered && activeSection !== "home";
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10">
-      <div className="w-full px-6 py-4">
+    <nav 
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className={`backdrop-blur-md bg-black/70 border border-white/20 shadow-2xl transition-all duration-500 ease-in-out ${
+        isCompact ? 'rounded-full px-6 py-2' : 'rounded-full px-8 py-4'
+      }`}>
         <div className="flex justify-between items-center">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-2xl font-bold text-white hover:text-gray-300 transform transition-all duration-300 ease-in-out hover:scale-105"
+            className={`font-bold text-white hover:text-gray-300 transform transition-all duration-500 ease-in-out hover:scale-105 ${
+              isCompact ? 'text-lg' : 'text-2xl'
+            }`}
             data-testid="nav-logo"
           >
             <span 
@@ -69,7 +88,9 @@ export default function Navigation() {
             </span>
           </button>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={`hidden md:flex items-center transition-all duration-500 ease-in-out overflow-hidden ${
+            showNavItems ? 'ml-12 space-x-8 opacity-100 max-w-[600px]' : 'ml-0 space-x-0 opacity-0 max-w-0'
+          }`}>
             {[
               { id: "about", label: "About" },
               { id: "skills", label: "Skills" },
@@ -80,7 +101,9 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-base font-medium transition-all duration-300 hover:scale-105 ${
+                className={`font-medium transition-all duration-500 ease-in-out hover:scale-105 whitespace-nowrap ${
+                  isCompact ? 'text-sm' : 'text-base'
+                } ${
                   activeSection === item.id
                     ? "text-white border-b-2 border-white pb-1"
                     : "text-gray-300 hover:text-white"
@@ -93,7 +116,9 @@ export default function Navigation() {
           </div>
 
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
+            className={`md:hidden p-2 rounded-full hover:bg-white/10 transition-all duration-500 ease-in-out ${
+              isCompact ? 'ml-4' : 'ml-6'
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="mobile-menu-toggle"
           >
@@ -104,35 +129,35 @@ export default function Navigation() {
             )}
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 py-6 border-t border-white/20">
-            <div className="flex flex-col space-y-6">
-              {[
-                { id: "about", label: "About" },
-                { id: "skills", label: "Skills" },
-                { id: "work", label: "Work" },
-                { id: "certificates", label: "Certificates" },
-                { id: "contact", label: "Contact" }
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-lg font-medium transition-colors duration-300 ${
-                    activeSection === item.id
-                      ? "text-white"
-                      : "text-gray-300 hover:text-white"
-                  }`}
-                  data-testid={`mobile-nav-${item.id}`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden mt-4 backdrop-blur-md bg-black/70 border border-white/20 rounded-3xl px-6 py-6 shadow-2xl">
+          <div className="flex flex-col space-y-4">
+            {[
+              { id: "about", label: "About" },
+              { id: "skills", label: "Skills" },
+              { id: "work", label: "Work" },
+              { id: "certificates", label: "Certificates" },
+              { id: "contact", label: "Contact" }
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`text-left text-lg font-medium transition-colors duration-300 ${
+                  activeSection === item.id
+                    ? "text-white"
+                    : "text-gray-300 hover:text-white"
+                }`}
+                data-testid={`mobile-nav-${item.id}`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
