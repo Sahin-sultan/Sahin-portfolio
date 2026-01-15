@@ -17,7 +17,7 @@ const Hero = memo(function Hero() {
             Sahin Sultan
           </h1>
         </AnimatedSection>
-        
+
         <AnimatedSection
           className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-16"
           data-testid="hero-description"
