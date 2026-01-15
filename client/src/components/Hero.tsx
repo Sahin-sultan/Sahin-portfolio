@@ -1,5 +1,38 @@
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+
+const DecodeText = ({ text, className, style }: { text: string, className?: string, style?: React.CSSProperties }) => {
+  const [displayText, setDisplayText] = useState("");
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
+
+  useEffect(() => {
+    let iteration = 0;
+    const interval = setInterval(() => {
+      setDisplayText((prev) =>
+        text
+          .split("")
+          .map((char, index) => {
+            if (char === " ") return " ";
+            if (index < iteration) {
+              return text[index];
+            }
+            return characters[Math.floor(Math.random() * characters.length)];
+          })
+          .join("")
+      );
+
+      if (iteration >= text.length) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 4;
+    }, 40);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <span className={className} style={style}>{displayText}</span>;
+};
 
 const Hero = memo(function Hero() {
 
@@ -13,8 +46,11 @@ const Hero = memo(function Hero() {
           y={30}
           duration={0.3}
         >
-          <h1 className="relative inline-block" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Sahin Sultan
+          <h1 className="relative inline-block">
+            <DecodeText 
+              text="Sahin Sultan" 
+              style={{ fontFamily: 'Playfair Display, serif' }}
+            />
           </h1>
         </AnimatedSection>
 
@@ -25,8 +61,11 @@ const Hero = memo(function Hero() {
           y={20}
           duration={0.3}
         >
-          <p style={{ fontFamily: 'Crete Round, serif' }}>
-            Full Stack Developer | AI Enthusiast
+          <p>
+            <DecodeText 
+              text="Full Stack Developer | AI Enthusiast"
+              style={{ fontFamily: 'Crete Round, serif' }}
+            />
           </p>
         </AnimatedSection>
         
