@@ -54,6 +54,17 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Sahin-sultan/Talky",
     technologies: ["HTML5", "CSS3", "Vanilla JavaScript", "Python 3.9+", "FastAPI", "Groq API"]
   }
+  // Duplicate project section for new project
+  ,{
+    id: 5,
+    title: "AthleteHub",
+    description: "Athlete Hub is a modern, responsive sports platform built to showcase athletic products, updates, and performance-focused content. This project is designed with a clean UI, smooth animations, and a mobile-first approach to deliver a fast and engaging user experience.",
+    image: "https://res.cloudinary.com/ddzreu2to/image/upload/v1768640197/Screenshot_2026-01-17_142430_gzcrgk.png",
+    videoUrl: "https://res.cloudinary.com/ddzreu2to/video/upload/v1768641465/Screen_Recording_2026-01-17_142153_qeeoud.mp4", // Optional: Add video URL if available
+    liveUrl: "https://athlete--hub.vercel.app/", // Add live project URL
+    githubUrl: "https://github.com/Sahin-sultan/AthleteHub.git", // Add GitHub repo URL
+    technologies: ["TReact 18", "TailwindCSS", "Vite"] // Update with relevant technologies
+  }
 ];
 
 // Project Card Component with Video Hover
